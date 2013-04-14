@@ -8,7 +8,7 @@ udp.bind(orig);
 
 print 'Programa Somador de 0 ate N - Utilizando Balanceamento de Carga\n\n';
 
-print 'Digite a quantidade de clientes que sao esperados:';
+print 'Digite a quantidade de clientes que sao esperados:\n';
 nProcessors = int(raw_input());
 
 print 'Aguardando ',nProcessors,' clientes';
@@ -20,7 +20,7 @@ while conected < int(nProcessors):
     conected = conected + 1;
     
 print 'Clientes conectados com sucesso.';
-print 'Entre com o numero a ser feito o seu somatorio';
+print 'Entre com o numero a ser feito o seu somatorio\n';
 number = int(raw_input());
 
 print 'Entre com a quantidade de cargas';
