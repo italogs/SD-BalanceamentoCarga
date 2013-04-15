@@ -21,12 +21,23 @@ class Client(object):
 		for i in range(self.min,self.max+1):
 			self.sum = self.sum + i;
 udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM);
-dest = ('localhost', 5000);
+print 'Entre com o Endereco do Servidor:';
+HOST = raw_input();
+
+print 'porta:';
+PORT = int(raw_input());
+
+
+dest = (HOST, PORT);
 udp.sendto ('Conectado com Sucesso', dest);
 c = Client();
-print 'Aguardando resposta do servidor....';
+print 'Aguardando outros conectarem ao servidor do servidor....';
+flagMensagem = 0;
 while True:
 	result = c.receiveMinMax(udp);
+	if(flagMensagem == 0):
+		print 'Conectado com sucesso.';
+		flagMensagem = 1;
 	if(result == False):
 		break;
 	c.doSum();

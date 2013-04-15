@@ -3,7 +3,12 @@ import socket
 import math
 
 udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM);
-orig = ('localhost', 5000);
+
+HOST = socket.gethostbyname(socket.gethostname());
+PORT = 5000;
+
+
+orig = (HOST, PORT);
 udp.bind(orig);
 
 print 'Programa Somador de 0 ate N - Utilizando Balanceamento de Carga\n\n';
@@ -18,6 +23,7 @@ while conected < int(nProcessors):
     message, addressClient = udp.recvfrom(1024);
     listClients.insert(conected,addressClient);
     conected = conected + 1;
+    print conected,' conectados';
     
 print 'Clientes conectados com sucesso.';
 print 'Entre com o numero a ser feito o seu somatorio';
